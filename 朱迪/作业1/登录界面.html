@@ -1,0 +1,52 @@
+<html>
+<head>
+  <script type="text/javascript">
+	function validate_required(field,alerttxt)
+{
+with (field)
+  {
+  if (value==null||value==""||value.length>10||value.length<5) //用户名不能为空，长度在5-10
+    {alert(alerttxt);return false}
+  else {return true}
+  }
+}
+
+function validate_form(thisform)
+{
+with (thisform)
+  {
+  if (validate_required(username,"用户名不能为空，同时必须小于10个字符大于5个字符")==false)
+    {username.focus();return false}
+  }
+}
+</script>
+
+	<meta charset="UTF-8">
+	<body background="background.jpg">
+	<title>登陆界面</title>
+  <style type="text/css">
+    body{text-align:center;} 
+    div{width:250px;margin:0 auto;background:#fff;text-align:left;}
+  </style>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div >
+<form action="check.jsp" onsubmit="return validate_form(this)" method="post" >
+username<input type="text" method="get" placeholder="username" name="username" pattern="^[A-Za-z]+$"><!--只能输入字母-->
+<br>
+password<input type="password" method="submit" placeholder="password" name="password" pattern=("^(?=.*[0-9].*)(?=.*[a-zA-Z].*).{8,}$"><!--密码要求大于6个字符⼩小于16个字符，只能输入字⺟母和数字，并且是同时有字⺟母和数字才能生效-->
+ 
+<input type="submit" value="登陆">
+</div>
+</form>
+<br>
+注意：用户名要求必须大于五个字符而且小于10个字符，而且只能输入字母。 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;密码要求大于6个字符小于16个字符，只能输入字母和数字，并且是同时有字母和数字才能生效。
+</body>
+</html>
